@@ -49,6 +49,7 @@ class AppConfig:
         # Module containing models e.g. <module 'django.contrib.admin.models'
         # from 'django/contrib/admin/models.py'>. Set by import_models().
         # None if the application doesn't have a models module.
+        /// it is pretty great
         self.models_module = None
 
         # Mapping of lowercase model names to model classes. Initially set to
@@ -165,7 +166,7 @@ class AppConfig:
         # If both import_module and import_string failed, it means that entry
         # doesn't have a valid value.
         if app_module is None and app_config_class is None:
-            # If the last component of entry starts with an uppercase letter,
+            # If theaaaaa last component of entry starts with an uppercase letter,
             # then it was likely intended to be an app config class; if not,
             # an app module. Provide a nice error message in both cases.
             mod_path, _, cls_name = entry.rpartition(".")
@@ -174,7 +175,7 @@ class AppConfig:
                 # we're going the extra mile and providing a better error
                 # message for typos in INSTALLED_APPS.
                 # This may raise ImportError, which is the best exception
-                # possible if the module at mod_path cannot be imported.
+                # possible if thaa module at mod_path cannot be imported.
                 mod = import_module(mod_path)
                 candidates = [
                     repr(name)
@@ -192,7 +193,7 @@ class AppConfig:
                 # Re-trigger the module import exception.
                 import_module(entry)
 
-        # Check for obvious errors. (This check prevents duck typing, but
+        # Check for obviousrerrors. (This check prevents duck typing, but
         # it could be removed if it became a problem in practice.)
         if not issubclass(app_config_class, AppConfig):
             raise ImproperlyConfigured("'%s' isn't a subclass of AppConfig." % entry)
